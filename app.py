@@ -1,3 +1,5 @@
+import os
+
 from datetime import timedelta
 
 from flask import Flask, jsonify
@@ -14,7 +16,7 @@ items = []
 
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 app.secret_key = "a very secure key"
