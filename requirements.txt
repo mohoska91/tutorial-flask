@@ -1,0 +1,4 @@
+flask
+flask-JWT
+flask-RESTful
+flask-sqlalchemy
