@@ -22,12 +22,6 @@ app.secret_key = "a very secure key"
 app.config['JWT_AUTH_URL_RULE'] = '/login'
 app.config['JWT_EXPIRATION_DELTA'] = timedelta(seconds=1800)
 
-
-@app.before_first_request
-def create_tables():
-    db.create_all()
-
-
 jwt = JWT(app, authentication_handler=authenticate, identity_handler=identity)
 
 
